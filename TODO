@@ -1,0 +1,24 @@
+Features to implement:
+    Perspective movement in place of absolute
+    Clean up camera, remove unnecessary functions
+    Optimize code for better framerates
+    Mouse-controlled rotation
+    Backface culling (does not work as is)
+    Calculations to not render out of view range (the lack of this is causing several bad problems)
+
+Bugs to fix:
+    Framerate can drop to 25% when getting very close to block
+    There are random points (literal points) at which the program will crash; the error was captured for review
+            Application failed on render of tile: [(-1.3087571681128154e+16, 1.4314531526234398e+17), (800, 600), (800, 600), (-1.314242643305439e+16, 1.642803304131853e+17)]
+            The player was at 0.029999999999999975 0.37500000000000094 -0.5 when this happened
+
+            Traceback (most recent call last):
+              File "C:/Users/Key Cohen Office/Documents/GitHub/pystuff/3D Engine/MkII/main.py", line 71, in <module>
+                e.mainloop()
+              File "C:\Users\Key Cohen Office\Documents\GitHub\pystuff\3D Engine\MkII\engine.py", line 48, in mainloop
+                self.drawloop(*self.dlargs)
+              File "C:/Users/Key Cohen Office/Documents/GitHub/pystuff/3D Engine/MkII/main.py", line 56, in drawloop
+                self.poly(tile.color, verts)
+              File "C:\Users\Key Cohen Office\Documents\GitHub\pystuff\3D Engine\MkII\engine.py", line 53, in poly
+                draw.polygon(self.screen, Color(color), verts)
+            TypeError: points must be number pairs

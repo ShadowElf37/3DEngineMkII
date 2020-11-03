@@ -1,0 +1,3 @@
+#!/bin/bash
+file=`ls -t *.py |head -1`
+python3 -i $file
